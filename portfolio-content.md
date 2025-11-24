@@ -51,6 +51,13 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
 
 - InternPE — Python Programming Intern (Sep 2024 – Oct 2024)
   - Built GUI tools and small utilities (Tkinter) and delivered mini-projects focused on software design and testing.
+- YugaYatra Retail (OPC) Pvt. Ltd. | Software Engineer Intern (Sep 2025 – Nov 2025)
+  - Currently working on SchoolDekho.in, a comprehensive educational platform connecting parents, students, and schools with integrated financial aid options.
+  - Contributing to the frontend development using Next.js, Tailwind CSS, and Framer Motion for responsive design and smooth animations.
+  - Collaborating on implementing the AI-powered chatbot using OpenAI API and a Node.js backend to assist users in school search, loans, and scholarships.
+  - Assisting in integrating Cloudinary API for media storage and Supabase (PostgreSQL) for database management.
+  - Working closely with the backend team to implement secure authentication (JWT) and data-fetching APIs using React Query and Express.js.
+  - Gaining hands-on experience in team collaboration, real-time deployment (Vercel & AWS), and industry-grade development workflows.
 - Aureeture AI — Campus Director Intern (Aug 2025 – Oct 2025)
   - Coordinated campus outreach, events, and bootcamps; acted as liaison between students and company to facilitate partnerships and recruitment.
 
