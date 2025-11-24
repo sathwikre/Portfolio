@@ -158,6 +158,46 @@
     });
   }
 
+  function initButtonRipples() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        const rect = btn.getBoundingClientRect();
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        const size = Math.max(rect.width, rect.height) * 0.6;
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        btn.appendChild(ripple);
+        setTimeout(function () { try { ripple.remove(); } catch (e) {} }, 650);
+      });
+    });
+  }
+
+  function initHeroParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const hero = document.querySelector('.hero');
+    const heroArt = document.querySelector('.hero-art');
+    if (!hero || !heroArt) return;
+    let lastX = 0, lastY = 0;
+    hero.addEventListener('mousemove', function (e) {
+      const r = hero.getBoundingClientRect();
+      const cx = (e.clientX - r.left) / r.width - 0.5; // -0.5..0.5
+      const cy = (e.clientY - r.top) / r.height - 0.5;
+      const tx = cx * 6; // horizontal movement px
+      const ty = cy * 6; // vertical movement px
+      // use translate3d on container so internal animations (floatY) continue
+      heroArt.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0)';
+      lastX = tx; lastY = ty;
+    });
+    // subtle scroll parallax
+    window.addEventListener('scroll', function () {
+      const offset = Math.min(window.scrollY * 0.02, 20);
+      heroArt.style.transform = 'translate3d(' + lastX + 'px,' + (lastY - offset) + 'px,0)';
+    }, { passive: true });
+  }
+
   function initScrollSpy() {
     const navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-list a[href^="#"]'));
     const sections = navLinks.map(function (a) { const id = a.getAttribute('href').slice(1); return document.getElementById(id); });
@@ -200,6 +240,20 @@
     link.setAttribute('download', 'SuramSathwikReddy.vcf');
   }
 
+  // small page-load class to enable a global fade-in
+  window.addEventListener('load', function () {
+    if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.body.classList.add('is-loaded');
+    } else {
+      // reduced motion: still show content immediately
+      document.body.classList.add('is-loaded');
+    }
+  });
+
+  // Initialize enhanced motion features
+  initButtonRipples();
+  initHeroParallax();
+
   setYear();
   initTheme();
   initNav();
@@ -211,6 +265,7 @@
   initBackToTop();
   initScrollSpy();
   initVCard();
+  // motion helpers called after initializers
 })();
 
 

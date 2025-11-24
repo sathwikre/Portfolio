@@ -38,6 +38,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Page load subtle fade — JS will add `is-loaded` to body on load */
+body { opacity: 0; transition: opacity .35s ease; }
+body.is-loaded { opacity: 1; }
+
 /* motion: base reveal state */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform .45s ease; transition-delay: var(--delay, 0s); }
 .reveal.show { opacity: 1; transform: none; }
@@ -201,6 +205,8 @@ body {
   color: var(--text);
   text-decoration: none;
   transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .btn.primary {
@@ -213,9 +219,37 @@ body {
 
 .btn:hover { transform: translateY(-3px); box-shadow: 0 12px 24px rgba(0,0,0,.22); }
 
+/* Subtle glow on hover for buttons (non-intrusive) */
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 8px 30px rgba(37,99,235,0.08);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+.btn:hover::after { opacity: 1; }
+
+/* Ripple effect for clicks (inserted via JS) */
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(255,255,255,0.12);
+  transform: scale(0);
+  animation: ripple .6s ease-out;
+}
+@keyframes ripple {
+  to { transform: scale(4); opacity: 0; }
+}
+
 .hero-art {
   position: relative;
   min-height: 260px;
+  /* prepare for parallax transforms applied to this container */
+  transition: transform .35s ease;
 }
 
 .blob {
@@ -241,6 +275,10 @@ body {
   margin-left: auto;
   animation: floatY 8s ease-in-out infinite;
 }
+
+/* Hero image fade-in when revealed */
+.hero-photo.reveal { opacity: 0; transform: translateY(8px) scale(.995); transition: opacity .45s ease, transform .45s ease; }
+.hero-photo.reveal.show { opacity: 1; transform: none; }
 
 .section { padding: 48px 0; }
 
@@ -371,6 +409,7 @@ h1, h2, h3 { margin: 0 0 10px; }
 
 @media (max-width: 640px) {
   .nav-toggle { display: inline-flex; }
+  /* Animate mobile nav open/close using max-height & opacity for smoothness */
   .nav-list {
     position: absolute;
     right: 0;
@@ -380,9 +419,15 @@ h1, h2, h3 { margin: 0 0 10px; }
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 8px;
-    display: none;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height .32s ease, opacity .28s ease, transform .28s ease;
+    transform-origin: top right;
+    transform: translateY(-6px);
+    display: flex;
   }
-  .nav-list.open { display: flex; }
+  .nav-list.open { max-height: 420px; opacity: 1; transform: none; }
   .projects-grid { grid-template-columns: 1fr; }
 }
 
