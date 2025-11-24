@@ -43,10 +43,6 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
 
 - InternPE — Python Programming Intern (Sep 2024 – Oct 2024)
   - Built GUI tools and small utilities (Tkinter) and delivered mini-projects focused on software design and testing.
-
-- ApexPlanet Software Pvt. Ltd. — Web Development Intern (May 2025 – July 2025)
-  - Built responsive web features and a blog application with authentication using PHP & MySQL. Implemented search, pagination, input validation and SQL security practices; deployed proof-of-concept to public hosting.
-
 - Aureeture AI — Campus Director Intern (Aug 2025 – Oct 2025)
   - Coordinated campus outreach, events, and bootcamps; acted as liaison between students and company to facilitate partnerships and recruitment.
 

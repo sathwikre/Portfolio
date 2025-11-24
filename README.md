@@ -79,7 +79,6 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
 ### Work Experience
 
 - InternPE — Python Programming Intern (Sep 2024 – Oct 2024)
-- ApexPlanet Software Pvt. Ltd. — Web Development Intern (May 2025 – July 2025)
 - Aureeture AI — Campus Director Intern (Aug 2025 – Oct 2025)
 
 ### Achievements & Certifications
