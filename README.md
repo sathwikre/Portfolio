@@ -46,3 +46,58 @@ sathwu.pdf   # your résumé (already in workspace)
 MIT
 
 
+
+---
+
+## Résumé-Verified Portfolio Content
+
+The following content is pulled directly from the résumé and repository files. Use this as the canonical copy for the site.
+
+### About
+
+Undergraduate in Computer Science with hands-on experience building full‑stack web applications and backend systems. Focused on algorithmic problem solving and delivering production-ready features.
+
+### Education
+
+- Jawaharlal Nehru Technological University — Bachelor of Technology in Computer Science (CGPA: 8.57)
+- SR Junior College — Intermediate (Percentage: 98.3%)
+
+### Technical Skills
+
+- Languages: Java, Python, JavaScript, HTML, CSS
+- Web & Backend: PHP, Frontend & Backend development
+- Databases: MySQL, MongoDB
+- Tools: XAMPP, Git, VS Code
+- Core: Data Structures & Algorithms, OOP, Operating Systems, DBMS
+
+### Projects (summary)
+
+- Virtual Classroom System — Full-stack classroom platform with role-based dashboards, secure content upload, and automated email notifications. (Dec 2024 – Apr 2025)
+- Grampower — Village electricity monitoring & complaint system. (May 2025 – June 2025) — Live: https://sathwik-reddy.free.nf
+- Algorithm Practice & Problem Solving — 200+ problems solved; primary language: Java. (Ongoing) — GitHub: https://github.com/sathwikre
+
+### Work Experience
+
+- InternPE — Python Programming Intern (Sep 2024 – Oct 2024)
+- ApexPlanet Software Pvt. Ltd. — Web Development Intern (May 2025 – July 2025)
+- Aureeture AI — Campus Director Intern (Aug 2025 – Oct 2025)
+
+### Achievements & Certifications
+
+- Delivered a production-ready Virtual Classroom System with role-based access and notifications.
+- Built and deployed Grampower — a village electricity monitoring and complaint management system.
+- Solved 200+ algorithm problems (ongoing practice).
+
+Certifications: (No explicit certifications listed in the résumé PDF.)
+
+### Contact
+
+- Email: suramsathwikreddy292@gmail.com
+- Phone: +91 90149 41863
+- GitHub: https://github.com/sathwikre
+
+--
+
+_This section is added programmatically by the repository assistant and contains only résumé-verified information._
+
+
