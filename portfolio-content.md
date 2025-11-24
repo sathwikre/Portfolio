@@ -33,6 +33,11 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
   - Key points: Complaint registration and triage workflow; status dashboards for administrators and citizens; responsive UI and public deployment.
   - Live: https://sathwik-reddy.free.nf
 
+- Student Grievance Portal (Aug 2025 – Oct 2025)
+  - Built an online grievance management system for students to submit and track complaints easily.
+  - Integrated an admin panel for efficient issue tracking and resolution workflows.
+  - Improved transparency and communication between students and institutional authorities.
+
 - Algorithm Practice & Problem Solving (Ongoing)
   - Description: Continuous practice of algorithmic challenges (200+ problems) focused on arrays, linked lists, trees, and dynamic programming.
   - Primary language: Java

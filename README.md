@@ -74,6 +74,8 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
 
 - Virtual Classroom System — Full-stack classroom platform with role-based dashboards, secure content upload, and automated email notifications. (Dec 2024 – Apr 2025)
 - Grampower — Village electricity monitoring & complaint system. (May 2025 – June 2025) — Live: https://sathwik-reddy.free.nf
+- Student Grievance Portal — Built an online grievance management system for students to submit and track complaints easily; integrated an admin panel for issue tracking and resolution. (Aug 2025 – Oct 2025)
+- Virtual impact: Improved transparency and communication between students and institutional authorities.
 - Algorithm Practice & Problem Solving — 200+ problems solved; primary language: Java. (Ongoing) — GitHub: https://github.com/sathwikre
 
 ### Contributions
