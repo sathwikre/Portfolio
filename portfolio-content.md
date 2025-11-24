@@ -39,6 +39,14 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
   - Code/Activity: https://github.com/sathwikre
 
 
+## Contributions
+
+- **JNTUA Student Attendance Checking WebApp** (Sep 2025 – Oct 2025)
+  - Designed and developed the frontend interface for a JNTUA attendance tracking web app.
+  - Implemented “Can Skip” and “Need to Attend” features to calculate how many classes students can skip or must attend to maintain 75% attendance.
+  - Live Demo: https://jntua-attendance-app.vercel.app
+
+
 ## Work Experience / Internships
 
 - InternPE — Python Programming Intern (Sep 2024 – Oct 2024)

@@ -76,6 +76,13 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
 - Grampower — Village electricity monitoring & complaint system. (May 2025 – June 2025) — Live: https://sathwik-reddy.free.nf
 - Algorithm Practice & Problem Solving — 200+ problems solved; primary language: Java. (Ongoing) — GitHub: https://github.com/sathwikre
 
+### Contributions
+
+- **JNTUA Student Attendance Checking WebApp** (Sep 2025 – Oct 2025)
+  - Designed and developed the frontend interface for a JNTUA attendance tracking web app.
+  - Implemented “Can Skip” and “Need to Attend” features to calculate how many classes students can skip or must attend to maintain 75% attendance.
+  - Live Demo: https://jntua-attendance-app.vercel.app
+
 ### Work Experience
 
 - InternPE — Python Programming Intern (Sep 2024 – Oct 2024)
