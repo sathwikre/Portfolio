@@ -60,13 +60,20 @@
   }
 
   function initSmoothScroll() {
+    const header = document.querySelector('.site-header');
+    function headerOffset() {
+      return header ? header.getBoundingClientRect().height : 0;
+    }
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
       anchor.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href').slice(1);
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const targetId = href.slice(1);
         const target = document.getElementById(targetId);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const top = target.getBoundingClientRect().top + window.scrollY - headerOffset();
+          window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
         }
       });
     });
@@ -155,6 +162,56 @@
     });
     btn.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Staggered reveal helper: elements with class `stagger-child` will reveal children in sequence
+  function initStaggeredReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    const parents = Array.prototype.slice.call(document.querySelectorAll('.stagger-child'));
+    const obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const parent = entry.target;
+        const step = parseInt(parent.getAttribute('data-delay-step') || '80', 10);
+        Array.prototype.slice.call(parent.children).forEach(function (child, i) {
+          child.style.setProperty('--stagger-index', String(i));
+          child.style.setProperty('--stagger-step', step + 'ms');
+          setTimeout(function () { child.classList.add('show'); }, i * step);
+        });
+        obs.unobserve(parent);
+      });
+    }, { threshold: 0.12 });
+    parents.forEach(function (p) { obs.observe(p); });
+  }
+
+  // Simple typewriter effect for elements with `data-typer` attribute
+  function initTypewriter() {
+    const typers = Array.prototype.slice.call(document.querySelectorAll('[data-typer]'));
+    typers.forEach(function (el) {
+      const text = el.textContent.trim();
+      el.textContent = '';
+      el.classList.add('typewriter');
+      const cursor = document.createElement('span'); cursor.className = 'typer-cursor';
+      el.parentNode && el.parentNode.insertBefore(cursor, el.nextSibling);
+      let i = 0;
+      const speed = parseInt(el.getAttribute('data-typer-speed') || '70', 10);
+      function step() {
+        if (i <= text.length) {
+          el.textContent = text.slice(0, i);
+          i++;
+          setTimeout(step, speed);
+        } else {
+          setTimeout(function () { cursor.style.opacity = '0.6'; }, 600);
+        }
+      }
+      if (!('IntersectionObserver' in window)) { step(); return; }
+      const obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { step(); obs.unobserve(entry.target); }
+        });
+      }, { threshold: 0.2 });
+      obs.observe(el);
     });
   }
 
@@ -248,7 +305,25 @@
       // reduced motion: still show content immediately
       document.body.classList.add('is-loaded');
     }
+    // set CSS header height var to the real header height (handles responsive changes)
+    try {
+      var hdr = document.querySelector('.site-header');
+      if (hdr) {
+        document.documentElement.style.setProperty('--header-height', hdr.getBoundingClientRect().height + 'px');
+      }
+    } catch (e) {}
   });
+
+  // update header height on resize (debounced)
+  (function () {
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () {
+      try {
+        var hdr = document.querySelector('.site-header');
+        if (hdr) document.documentElement.style.setProperty('--header-height', hdr.getBoundingClientRect().height + 'px');
+      } catch (e) {}
+    }, 120); }, { passive: true });
+  })();
 
   // Initialize enhanced motion features
   initButtonRipples();
@@ -260,6 +335,8 @@
   initSmoothScroll();
   initThemeToggle();
   initRevealOnScroll();
+  initStaggeredReveal();
+  initTypewriter();
   initProjectFilters();
   initProjectModal();
   initBackToTop();

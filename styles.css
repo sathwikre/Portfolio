@@ -9,6 +9,7 @@
   --accent: #2563eb; /* modern blue */
   --border: #252634;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --header-height: 64px;
 }
 
 [data-theme="light"] {
@@ -28,6 +29,12 @@ html, body {
   height: 100%;
 }
 
+/* account for the fixed/sticky header when jumping to anchors */
+html { scroll-padding-top: var(--header-height); }
+
+/* push content down so fixed header doesn't cover top sections */
+body { padding-top: var(--header-height); }
+
 body {
   margin: 0;
   color: var(--text);
@@ -46,6 +53,30 @@ body.is-loaded { opacity: 1; }
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .45s ease, transform .45s ease; transition-delay: var(--delay, 0s); }
 .reveal.show { opacity: 1; transform: none; }
 
+/* Animation utilities */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+@keyframes pop { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+
+.animate-fade { animation: fadeIn .6s cubic-bezier(.2,.9,.2,1) both; }
+.animate-slide-left { animation: slideInLeft .5s cubic-bezier(.2,.9,.2,1) both; }
+.animate-pop { animation: pop .45s cubic-bezier(.2,.9,.2,1) both; }
+.animate-pulse { animation: pulse 3s ease-in-out infinite; }
+
+/* Stagger helpers: JS will set --stagger-index and --stagger-step */
+.stagger-child > * { opacity: 0; transform: translateY(8px); transition: opacity .45s ease, transform .45s ease; transition-delay: calc(var(--stagger-step, 80ms) * var(--stagger-index, 0)); }
+.stagger-child > *.show { opacity: 1; transform: none; }
+
+/* Typewriter */
+.typewriter { display: inline; white-space: nowrap; overflow: hidden; }
+.typer-cursor { display:inline-block; width:2px; background: var(--text); margin-left:6px; animation: blink 1s steps(2,end) infinite; vertical-align:middle; height:1em; }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Back to top button animations */
+.back-to-top { position: fixed; right: 20px; bottom: 22px; background: var(--surface); border:1px solid var(--border); padding: 10px 12px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,.18); transform: translateY(12px) scale(.98); opacity: 0; transition: transform .35s ease, opacity .35s ease; z-index: 120; }
+.back-to-top.show { transform: translateY(0) scale(1); opacity: 1; }
+
 .container {
   width: 100%;
   max-width: 1100px;
@@ -54,10 +85,13 @@ body.is-loaded { opacity: 1; }
 }
 
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
-  background: color-mix(in oklab, var(--bg), var(--surface) 70%);
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  background: color-mix(in oklab, var(--bg), var(--surface) 90%);
   border-bottom: 1px solid var(--border);
   backdrop-filter: saturate(1.2) blur(8px);
 }
@@ -321,6 +355,12 @@ h1, h2, h3 { margin: 0 0 10px; }
   .reveal, .reveal.show, .btn, .card, .blob, .hero-photo { transition: none !important; animation: none !important; transform: none !important; }
 }
 
+/* Keep hero heading on one line on larger screens; allow wrap on small screens */
+.hero-content h1 { white-space: nowrap; }
+@media (max-width: 680px) {
+  .hero-content h1 { white-space: normal; }
+}
+
 .timeline {
   position: relative;
   list-style: none;
@@ -412,8 +452,8 @@ h1, h2, h3 { margin: 0 0 10px; }
   /* Animate mobile nav open/close using max-height & opacity for smoothness */
   .nav-list {
     position: absolute;
-    right: 0;
-    top: 56px;
+    right: 12px;
+    top: calc(var(--header-height) + 8px);
     flex-direction: column;
     background: var(--surface);
     border: 1px solid var(--border);
@@ -429,6 +469,22 @@ h1, h2, h3 { margin: 0 0 10px; }
   }
   .nav-list.open { max-height: 420px; opacity: 1; transform: none; }
   .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* Mobile / small tablet improvements */
+@media (max-width: 820px) {
+  :root { --header-height: 56px; }
+  .container { padding: 0 14px; max-width: 100%; }
+  .hero { gap: 18px; min-height: auto; padding-top: 18px; }
+  .hero-photo { max-width: 220px; margin: 18px auto 0; }
+  .cta-row { flex-wrap: wrap; }
+  .quick-facts { flex-wrap: wrap; }
+}
+
+@media (max-width: 420px) {
+  .header-inner { height: 56px; }
+  .logo { width: 36px; height: 36px; }
+  .nav-list { right: 8px; left: auto; }
 }
 
 /* Modal */
