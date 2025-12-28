@@ -145,10 +145,49 @@
         html = '<h3>Virtual Classroom System</h3><p>Multi-role classroom app with uploads, access control, and notifications.</p><ul><li>Auth & role-based dashboards</li><li>Upload & restrict by branch/year</li><li>Email notifications</li><li>Stack: HTML, CSS, JS, PHP, MySQL</li></ul>';
       } else if (id === 'grampower') {
         html = '<h3>Grampower</h3><p>Village electricity monitoring and complaints system.</p><ul><li>Real-time status</li><li>Complaint workflow</li><li>Deployed on InfinityFree</li><li>Stack: PHP, MySQL</li></ul>';
+      } else if (id === 'grievance') {
+        html = '<h3>Student Grievance Portal</h3><p>Online grievance management system for students to submit and track complaints easily.</p><ul><li>Complaint submission and tracking system</li><li>Admin panel for issue triage and resolution workflows</li><li>Role-based access control</li><li>Improved transparency and student–institution communication</li><li>Stack: HTML, CSS, JavaScript, PHP, MySQL</li></ul>';
       } else if (id === 'leetcode') {
         html = '<h3>LeetCode Problem Solving</h3><p>200+ problems solved with focus on core DSA.</p><ul><li>Arrays, Linked Lists, Stacks, Queues</li><li>Top 25% contests</li><li>Primary language: Java</li></ul>';
       }
       open(html);
+    });
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.vcs-live-btn');
+      if (!btn) return;
+      e.preventDefault();
+      const html = '<h3>Virtual Classroom System</h3><p style="margin-top: 1rem;">This project is not deployed for free due to large size.</p>';
+      open(html);
+    });
+    [backdrop, closeBtn].forEach(function (el) { if (el) el.addEventListener('click', function () { close(); }); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  }
+
+  function initBadgeModal() {
+    const modal = document.getElementById('badge-modal');
+    const backdrop = document.getElementById('badge-modal-backdrop');
+    const closeBtn = document.getElementById('badge-modal-close');
+    const image = document.getElementById('badge-modal-image');
+    if (!modal || !image) return;
+    function open(imgSrc, imgAlt) {
+      image.src = imgSrc;
+      image.alt = imgAlt || 'Badge';
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      modal.setAttribute('aria-modal', 'true');
+    }
+    function close() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.setAttribute('aria-modal', 'false');
+    }
+    document.addEventListener('click', function (e) {
+      const badgeImg = e.target.closest('.badge-img');
+      if (!badgeImg) return;
+      e.preventDefault();
+      const imgSrc = badgeImg.getAttribute('data-badge-image') || badgeImg.getAttribute('src');
+      const imgAlt = badgeImg.getAttribute('alt') || 'Badge';
+      open(imgSrc, imgAlt);
     });
     [backdrop, closeBtn].forEach(function (el) { if (el) el.addEventListener('click', function () { close(); }); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
@@ -339,6 +378,7 @@
   initTypewriter();
   initProjectFilters();
   initProjectModal();
+  initBadgeModal();
   initBackToTop();
   initScrollSpy();
   initVCard();
