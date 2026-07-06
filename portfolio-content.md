@@ -15,33 +15,33 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
 
 ## Technical Skills
 
-- Languages: Java, Python, JavaScript (ES6+), HTML, CSS
-- Web & Backend: PHP, Node-like concepts (backend), Frontend & Backend development
-- Databases: MySQL, MongoDB
-- Tools & Environments: XAMPP, Git, VS Code
-- Core Concepts: Data Structures & Algorithms, OOP, Operating Systems, DBMS
+- **Programming Languages**: Python, Java (OOP, DSA), C, Kotlin (Basic Android)
+- **Web Development**: HTML, CSS, JavaScript, Node.js, Express.js, React.js, MySQL, MongoDB
+- **Machine Learning & AI**: Supervised Learning, Regression & Classification (Logistic Regression, KNN, SVM, Decision Trees), K-Means, Model Evaluation (Precision, Recall, F1-score), Scikit-learn, Pandas, NumPy
+- **Data & Visualization**: D3.js, Graph Analysis
+- **Tools**: Git, GitHub, Docker, VS Code, Cursor, XAMPP
+
+
+## Experience
+
+- **Full Stack Developer Intern | QClairvoyance**
+  - Developed the QClairEdu Learning Management System (LMS) using React.js, JavaScript, and Python, implementing interactive learning features such as flashcards, streak tracking, and educational content management to enhance student engagement and learning experience.
+  - Engineered a Retrieval-Augmented Generation (RAG) system using Python and Large Language Models (LLMs) to deliver context-aware AI responses from educational content, while improving content organization and integrating visual learning assets across multiple modules.
 
 
 ## Projects
 
-- Virtual Classroom System (Dec 2024 – Apr 2025)
-  - Description: Full-stack classroom platform with role-based dashboards, secure content upload, and automated email notifications. Access restrictions implemented by branch/year to streamline distribution of materials.
-  - Key points: Role-based authentication and dashboards; secure file/video upload with access controls; automated email notifications.
+- **AI Anantapur Police Hackathon – Cyber Fraud Money Trail Intelligence System** (2026)
+  - Built a financial fraud detection and money trail analysis platform using Node.js, React.js, PostgreSQL, Python, and D3.js, processing 1,000+ transactions to detect linked accounts and visualize fraud networks.
+  - Implemented graph analytics, risk scoring, freeze recommendation, and recovery tracking features to identify suspicious transaction patterns, accelerate cyber fraud investigations, and enhance decision-making.
 
-- Grampower — Village Electricity Monitoring & Complaint System (May 2025 – June 2025)
-  - Description: Web-based system to monitor electricity availability and manage citizen complaints. Includes complaint tracking, status dashboards, and an administrative workflow for resolution.
-  - Key points: Complaint registration and triage workflow; status dashboards for administrators and citizens; responsive UI and public deployment.
-  - Live: https://sathwik-reddy.free.nf
+- **JNTUA Digital Attendance System – Data Extraction & Visualization** (2025)
+  - Developed a concurrent web scraping and ETL pipeline using Python, Flask, BeautifulSoup, and ThreadPoolExecutor, reducing attendance data retrieval time by ~40% while leveraging Google Sheets as a cost-effective data storage and visualization solution.
+  - Built and deployed a Next.js analytics dashboard with Incremental Static Regeneration (ISR), supporting 600+ weekly users, achieving sub-second load times through caching, and implementing rule-based anomaly detection for unusual login activity.
 
-- Student Grievance Portal (Aug 2025 – Oct 2025)
-  - Built an online grievance management system for students to submit and track complaints easily.
-  - Integrated an admin panel for efficient issue tracking and resolution workflows.
-  - Improved transparency and communication between students and institutional authorities.
-
-- Algorithm Practice & Problem Solving (Ongoing)
-  - Description: Continuous practice of algorithmic challenges (200+ problems) focused on arrays, linked lists, trees, and dynamic programming.
-  - Primary language: Java
-  - Code/Activity: https://github.com/sathwikre
+- **Railway Leave Management System** (2025)
+  - Developed a full-stack Railway Leave Management System using React, TypeScript, Node.js, Express, and MongoDB, automating email-based leave request processing, approval workflows, employee management, real-time dashboards, and reporting for 200+ employees across 12 stations.
+  - Implemented Gmail IMAP integration, cron-based email automation, Server-Sent Events (SSE), role-based leave validation, MongoDB aggregation, and RESTful APIs, ensuring real-time updates, synchronized leave statistics, and accurate employee and station records while preserving historical data.
 
 
 ## Contributions
@@ -52,28 +52,18 @@ Undergraduate in Computer Science with hands-on experience building full‑stack
   - Live Demo: https://jntua-attendance-app.vercel.app
 
 
-## Work Experience / Internships
+## Achievements
 
-- InternPE — Python Programming Intern (Sep 2024 – Oct 2024)
-  - Built GUI tools and small utilities (Tkinter) and delivered mini-projects focused on software design and testing.
-- YugaYatra Retail (OPC) Pvt. Ltd. | Software Engineer Intern (Sep 2025 – Nov 2025)
-  - Currently working on SchoolDekho.in, a comprehensive educational platform connecting parents, students, and schools with integrated financial aid options.
-  - Contributing to the frontend development using Next.js, Tailwind CSS, and Framer Motion for responsive design and smooth animations.
-  - Collaborating on implementing the AI-powered chatbot using OpenAI API and a Node.js backend to assist users in school search, loans, and scholarships.
-  - Assisting in integrating Cloudinary API for media storage and Supabase (PostgreSQL) for database management.
-  - Working closely with the backend team to implement secure authentication (JWT) and data-fetching APIs using React Query and Express.js.
-  - Gaining hands-on experience in team collaboration, real-time deployment (Vercel & AWS), and industry-grade development workflows.
-- Aureeture AI — Campus Director Intern (Aug 2025 – Oct 2025)
-  - Coordinated campus outreach, events, and bootcamps; acted as liaison between students and company to facilitate partnerships and recruitment.
+- **Winner – AI Anantapur Police Hackathon (2026)** for developing a Cyber Fraud Money Trail Intelligence System.
+- Solved 500+ problems on LeetCode with consistent 200+ days streak.
 
 
-## Achievements & Certifications
+## Algorithm Practice & Problem Solving
 
-- Delivered a production-ready Virtual Classroom System with role-based access and notifications.
-- Built and deployed Grampower — a village electricity monitoring and complaint management system.
-- Solved 200+ algorithm problems (ongoing practice).
-
-Certifications: (No explicit certifications listed in the résumé PDF.)
+- Solved 500+ problems on LeetCode with consistent 200+ days streak, demonstrating strong problem-solving in DSA.
+- Continuous practice of algorithmic challenges focused on arrays, linked lists, trees, and dynamic programming.
+- Primary language: Java
+- GitHub: https://github.com/sathwikre
 
 
 ## Contact Information
